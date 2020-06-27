@@ -255,9 +255,16 @@ limitations under the License.
           })
           .catch(handleError);
       }
-      
-      const options={acceptAllDevices: true}
+
+      const options = {
+        filters:
+          [{
+            services: ['00001101-0000-1000-8000-00805F9B34FB']
+          }]
+      }
+
       /*{
+        acceptAllDevices: true
         filters: [{
           services: ['000018f0-0000-1000-8000-00805f9b34fb']
         }]
