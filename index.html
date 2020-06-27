@@ -271,6 +271,11 @@ limitations under the License.
       }*/
       printButton.addEventListener('click', function () {
         progress.hidden = false;
+
+        BluetoothRemoteGATTServer.getPrimaryServices(bluetoothServiceUUID).then(function (bluetoothGATTServices) {
+          console.log(bluetoothServiceUUID, bluetoothGATTServices)
+        })
+
         if (printCharacteristic == null) {
           navigator.bluetooth.requestDevice({
             filters:
