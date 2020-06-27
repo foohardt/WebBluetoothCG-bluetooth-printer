@@ -272,7 +272,12 @@ limitations under the License.
       printButton.addEventListener('click', function () {
         progress.hidden = false;
         if (printCharacteristic == null) {
-          navigator.bluetooth.requestDevice(options)
+          navigator.bluetooth.requestDevice({
+            filters:
+              [{
+                services: ['00001101-0000-1000-8000-00805F9B34FB']
+              }]
+          })
             .then(device => {
               console.log('> Found ' + device.name);
               console.log('Connecting to GATT Server...');
