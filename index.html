@@ -256,25 +256,15 @@ limitations under the License.
           .catch(handleError);
       }
 
-      const options = {
-        filters:
-          [{
-            services: ['00001101-0000-1000-8000-00805f9b34fb']
-          }]
-      }
-
       /*{
         acceptAllDevices: true
         filters: [{
           services: ['000018f0-0000-1000-8000-00805f9b34fb']
         }]
       }*/
+
       printButton.addEventListener('click', function () {
         progress.hidden = false;
-
-        BluetoothRemoteGATTServer.getPrimaryServices(bluetoothServiceUUID).then(function (bluetoothGATTServices) {
-          console.log(bluetoothServiceUUID, bluetoothGATTServices)
-        })
 
         if (printCharacteristic == null) {
           navigator.bluetooth.requestDevice({
